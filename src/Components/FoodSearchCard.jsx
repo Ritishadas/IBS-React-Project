@@ -102,27 +102,32 @@ const FoodSearchCard = () => {
         )}
 
         {foodData && (
-          <div style={{ marginTop: "16px" }}>
-            <p className="meal">
-              <strong>Food:</strong> {foodData.label}
-            </p>
-            <p className="meal">
-              <strong>Calories:</strong>{" "}
-              {Math.round(foodData.nutrients.ENERC_KCAL || 0)} kcal / 100g
-            </p>
-            <p className="meal">
-              <strong>Protein:</strong>{" "}
-              {Math.round(foodData.nutrients.PROCNT || 0)} g
-            </p>
-            <p className="meal">
-              <strong>Carbs:</strong>{" "}
-              {Math.round(foodData.nutrients.CHOCDF || 0)} g
-            </p>
-            <p className="meal">
-              <strong>Fat:</strong>{" "}
-              {Math.round(foodData.nutrients.FAT || 0)} g
-            </p>
-          </div>
+      <div style={{ marginTop: "16px" }}>
+  <p className="meal">
+    🍎 <strong>Food:</strong> {foodData.label}
+  </p>
+
+  <p className="meal">
+    🔥 <strong>Calories:</strong>{" "}
+    {Math.round(foodData.nutrients.ENERC_KCAL || 0)} kcal / 100g
+  </p>
+
+  <p className="meal">
+    🥚 <strong>Protein:</strong>{" "}
+    {Math.round(foodData.nutrients.PROCNT || 0)} g
+  </p>
+
+  <p className="meal">
+    🍞 <strong>Carbs:</strong>{" "}
+    {Math.round(foodData.nutrients.CHOCDF || 0)} g
+  </p>
+
+  <p className="meal">
+    🥑 <strong>Fat:</strong>{" "}
+    {Math.round(foodData.nutrients.FAT || 0)} g
+  </p>
+</div>
+
         )}
       </div>
     </div>

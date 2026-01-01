@@ -1,0 +1,74 @@
+/* =========================
+   IBS FOOD BOARD CONTAINER
+========================= */
+.ibs-board {
+  display: flex;
+  gap: 48px;              /* MUCH wider spacing */
+  width: 100%;            /* 🔥 VERY IMPORTANT */
+  align-items: stretch;
+}
+
+/* =========================
+   EACH COLUMN
+========================= */
+.ibs-column {
+  flex: 1;
+  min-width: 240px;       /* 🔥 prevents shrinking */
+}
+
+/* =========================
+   COLUMN HEADING
+========================= */
+.ibs-column h3 {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+/* =========================
+   SCROLLABLE LIST
+========================= */
+.ibs-scroll {
+  max-height: 280px;      /* taller scroll area */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* =========================
+   FOOD ITEM (PILL)
+========================= */
+.ibs-food {
+  background: #f1f5f9;
+  padding: 12px 14px;     /* 🔥 more breathing space */
+  margin-bottom: 8px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* =========================
+   SCROLLBAR STYLING
+========================= */
+.ibs-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ibs-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 900px) {
+  .ibs-board {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ibs-column {
+    min-width: 100%;
+  }
+}

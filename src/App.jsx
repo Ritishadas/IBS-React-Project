@@ -1,5 +1,6 @@
 import DayCard from "./Components/DayCard";
 import FoodSearchCard from "./Components/FoodSearchCard";
+import IBSFoodBoard from "./Components/IBSFoodBoard";
 import southfood from "./assets/shreyak-singh-gFB1IPmH6RE-unsplash.jpg";
 import fridayImg from "./assets/image.png";
 
@@ -104,36 +105,25 @@ const App = () => {
   ];
 
   return (
-    <div style={{ padding: "32px", background: "#f8fafc", minHeight: "100vh" }}>
-      <h1 style={{ textAlign: "center", fontSize: "36px" }}>
-        🌿 IBS-D Weekly Meal Planner
-      </h1>
-      <p style={{ textAlign: "center", color: "#6b7280", marginBottom: "32px" }}>
-        Simple, Indian, gut-friendly meals
-      </p>
+    <div className="app-page">
+      {/* Header */}
+      <header className="app-header">
+        <h1>🌿 IBS-D Weekly Meal Planner</h1>
+        <p>Simple, Indian, gut-friendly meals</p>
+      </header>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-          gap: "32px",
-          marginBottom: "48px",
-        }}
-      >
+      {/* 🔥 Search + IBS Food Board (SIDE BY SIDE) */}
+      <section className="top-section">
         <FoodSearchCard />
-      </div>
+        <IBSFoodBoard />
+      </section>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-          gap: "20px",
-        }}
-      >
+      {/* Day cards */}
+      <section className="cards-wrapper">
         {days.map((day, index) => (
           <DayCard key={index} {...day} />
         ))}
-      </div>
+      </section>
     </div>
   );
 };
