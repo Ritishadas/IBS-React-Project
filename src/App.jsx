@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import DayCard from "./Components/DayCard";
 import FoodSearchCard from "./Components/FoodSearchCard";
 import IBSFoodBoard from "./Components/IBSFoodBoard";
@@ -5,6 +6,21 @@ import southfood from "./assets/shreyak-singh-gFB1IPmH6RE-unsplash.jpg";
 import fridayImg from "./assets/image.png";
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Load saved theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+    }
+  }, []);
+
+  // Save theme
+  useEffect(() => {
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
   const days = [
     {
       day: "Monday",
@@ -105,14 +121,28 @@ const App = () => {
   ];
 
   return (
-    <div className="app-page">
+    <div className={`app-page ${darkMode ? "dark" : ""}`}>
       {/* Header */}
       <header className="app-header">
         <h1>🌿 IBS-D Weekly Meal Planner</h1>
         <p>Simple, Indian, gut-friendly meals</p>
+
+        {/* 🌙 Dark Mode Toggle */}
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          style={{
+            marginTop: "16px",
+            padding: "8px 14px",
+            borderRadius: "20px",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
       </header>
 
-      {/* 🔥 Search + IBS Food Board (SIDE BY SIDE) */}
+      {/* Search + IBS Board */}
       <section className="top-section">
         <FoodSearchCard />
         <IBSFoodBoard />
